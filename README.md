@@ -51,7 +51,8 @@ api.setParallelSend(5);
 // Maximum safety (sequential)
 api.setParallelSend(1);
 api.setFastSend(false);
-⚠️ Note: FastSend disables queue protections and may increase:
+
+# ⚠️ Note: FastSend disables queue protections and may increase:
 Rate limiting risk
 Temporary delivery failures
 Account flagging probability
