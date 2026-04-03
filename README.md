@@ -221,4 +221,4 @@ Focused PRs improving stability, safety heuristics, protocol coverage, or typing
 [Cid kageno](https://www.facebook.com/mritunjoy.mondol.535402)
 
 MIT © 2026 Cid kageno (cid-kageno-dev)
-[This project is based on ws3-fca](https://github.com/NethWs3Dev/ws3-fca)
+This project is based on [ws3-fca](https://github.com/NethWs3Dev/ws3-fca.git)
