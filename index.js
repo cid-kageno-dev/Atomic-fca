@@ -16,21 +16,16 @@ const { safeMode, ultraSafeMode, smartSafetyLimiter, isUserAllowed } = require('
 let _fancyBannerPrinted = false;
 const gradient = (() => { try { return require('gradient-string'); } catch (_) { return null; } })();
 const pkgMeta = (() => { try { return require('./package.json'); } catch (_) { return { version: 'dev' }; } })();
+
 function printFancyStartupBanner() {
-  if (_fancyBannerPrinted) return; _fancyBannerPrinted = true;
-  const banner = [
-        "     ██████╗  ██╗  ██████╗ ",
-        "     ██╔═══╝  ██║  ██╔══ ██╗",
-        "     ██║       ██║  ██║    ██║",
-        "     ██║       ██║  ██║   ██║",
-        "     ╚██████╗ ██║  ██████╔╝",
-        "      ╚═════╝ ╚═╝  ╚═════╝ ",
-        "      ",
-        "    █▄▀ ▄▀█ █▀▀ █▀▀ █▄░█ █▀█",
-        "    █░█ █▀█ █▄█ ██▄ █░▀█ █▄█",
-        "    ",
-        "      === I AM ATOMIC ==="
-    ];
+  if (_fancyBannerPrinted) return; 
+  _fancyBannerPrinted = true;
+
+  const banner = `
+   █▀█ ▀█▀ █▀█ █▀▄▀█ █ █▀▀
+   █▀█  █  █▄█ █ ▀ █ █ █▄▄
+  `;
+
   const info = `
     Version: ${pkgMeta.version} | Stability: 99.9%
     Region: ${process.env.ATOMIC_REGION || 'Auto-Detect'} | Mode: ${global.fca?.config?.mqtt?.enabled ? 'Hybrid MQTT' : 'HTTP Only'}
@@ -44,29 +39,32 @@ function printFancyStartupBanner() {
     console.log(info);
   }
 }
+
 function printIdentityBanner(uid, name) {
-  const cleanName = name || 'Unknown';
+  const cleanName = name || 'Unknown User';
+  const cleanUid = uid || 'N/A';
 
   if (gradient) {
-    const title = '✨ ACTIVE LIVE SESSION';
+    const title = ' ✨  ACTIVE LIVE SESSION';
     const border = '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
 
+    // Using \n inside the console.log to manage vertical whitespace
     console.log(gradient.summer('\n' + border));
-    console.log(gradient.cristal(` ${title}`));
+    console.log(gradient.cristal(title));
     console.log(gradient.summer(border));
-    console.log(gradient.pastel(` 👤 Name : ${cleanName}`));
-    console.log(gradient.pastel(` 🆔 UID  : ${uid}`));
+    console.log(gradient.pastel(`  👤 Name : ${cleanName}`));
+    console.log(gradient.pastel(`  🆔 UID  : ${cleanUid}`));
     console.log(gradient.summer(border + '\n'));
   } else {
-    // Fallback for non-gradient environments
-    console.log('\n----------------------------------------');
+    console.log('\n' + '-'.repeat(40));
     console.log(' ACTIVE LIVE SESSION');
-    console.log('----------------------------------------');
+    console.log('-'.repeat(40));
     console.log(` Name : ${cleanName}`);
-    console.log(` UID  : ${uid}`);
-    console.log('----------------------------------------\n');
+    console.log(` UID  : ${cleanUid}`);
+    console.log('-'.repeat(40) + '\n');
   }
 }
+
 
 // Enhanced imports - All new modules
 const { AtomicClient } = require('./lib/compatibility/AtomicClient');
@@ -85,7 +83,7 @@ const { SingleSessionGuard } = require('./lib/safety/SingleSessionGuard');
 const { CookieRefresher } = require('./lib/safety/CookieRefresher');
 const { CookieManager } = require('./lib/safety/CookieManager');
 
-// NEW: Advanced Network & Authentication Modules
+// Advanced Network & Authentication Modules
 const EmailPasswordLogin = require('./lib/auth/EmailPasswordLogin');
 const ProxyManager = require('./lib/network/ProxyManager');
 const UserAgentManager = require('./lib/network/UserAgentManager');
