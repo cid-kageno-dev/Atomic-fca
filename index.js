@@ -18,12 +18,11 @@ const gradient = (() => { try { return require('gradient-string'); } catch (_) {
 const pkgMeta = (() => { try { return require('./package.json'); } catch (_) { return { version: 'dev' }; } })();
 
 function printFancyStartupBanner() {
-  if (_fancyBannerPrinted) return; 
-  _fancyBannerPrinted = true;
-
+  if (_fancyBannerPrinted) return; _fancyBannerPrinted = true;
+  
   const banner = `
-   █▀█ ▀█▀ █▀█ █▀▄▀█ █ █▀▀
-   █▀█  █  █▄█ █ ▀ █ █ █▄▄
+   █▀█ ▀█▀ █▀█ █▀▄▀█ █ █▀▀  █▀▀ █▀▀ ▄▀█
+   █▀█  █  █▄█ █ ▀ █ █ █▄▄   █▀  █▄▄ █▀█
   `;
 
   const info = `
