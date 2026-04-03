@@ -38,7 +38,7 @@
 
 ## ⚡ Speed vs Safety Configuration
 
-```js
+
 // Maximum speed (higher risk)
 api.setFastSend(true);
 
