@@ -278,10 +278,8 @@ PRs are welcome, especially for:
 # 📜 License
 
 MIT © 2026 [Cid Kageno](https://github.com/cid-kageno-dev)
-
 This project is based on [ws3-fca](https://github.com/NethWs3Dev/ws3-fca.git) 
-
-and uses [Nexus-fca](https://github.com/Nexus-016//Nexus-fCA.git) configuration 
+and uses [Nexus-fca](https://github.com/Nexus-016/Nexus/fCA.git) configuration 
 
 ---
 
