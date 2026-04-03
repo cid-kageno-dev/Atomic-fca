@@ -1,4 +1,4 @@
-<p align="center">
+// <p align="center">
   <img //src="https://i.ibb.co/Sk61FGg/Dragon-Fruit-1.jpg" alt="ATOMIC FCA" width="520" />
 </p>
 
