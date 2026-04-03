@@ -2,12 +2,12 @@
   <img src="Assets/iam-atomic.gif" alt="ATOMIC FCA" width="520" />
 </p>
 
-# ATOMIC FCA v1.1.0 ⚡🚀
+# ATOMIC-fca v1.1.0 💥 
 
 > **Ultra-Fast, Secure & Stable Facebook Messenger API**  
 > *Engineered for Speed, Stability & Zero Detection*
 
-## 🔥 New in v1.1.0 (Performance Update)
+## 🔥 Version 1.1.0 
 - **⚡ Parallel Message Sending**: Send up to 5 messages concurrently with `setParallelSend()` - 3x faster response times!
 - **🚀 Fast Send Mode**: Bypass queue completely with `setFastSend(true)` for instant replies (competition-level speed).
 - **📊 Configurable Queue System**: Fine-tune with `enableGroupQueue()` and `setGroupQueueCapacity()` for your needs.
@@ -47,10 +47,6 @@ api.setFastSend(false);
 ```
 
 ---
-## 🔄 What Changed in 1.1.0
-Major performance upgrade! No breaking changes - just faster. New parallel messaging system rivals competitors while keeping all safety features optional. Default configuration is balanced (3 concurrent sends). Power users can enable `setFastSend(true)` for maximum speed.
-
----
 ## 🚀 Quick Start
 
 ### Option 1: AppState Login (Most Stable)
@@ -70,7 +66,7 @@ const login = require('atomic-fca');
 })();
 ```
 
-### Option 2: Email/Password Login (NEW!)
+### Option 2: Email/Password Login 
 ```js
 const login = require('atomic-fca');
 
@@ -91,7 +87,7 @@ const login = require('atomic-fca');
 })();
 ```
 
-### Option 3: With Proxy + Random UA (NEW!)
+### Option 3: With Proxy + Random UA 
 ```js
 const login = require('atomic-fca');
 
@@ -213,27 +209,6 @@ const login = require('atomic-fca');
 | Examples | `examples/` |
 
 ---
-## � Migrating 2.1.x → 3.0.0
-| Area | Action Needed |
-|------|---------------|
-| Public API | None (fully compatible) |
-| Diagnostics Harness | Removed (no action) |
-| Delivery Metrics | Optionally surface in dashboards |
-| Safety Manager (legacy) | Keep removed / unused |
-
----
-## 🗂 Previous 2.1.x Highlights (Condensed)
-| Version | Focus | Key Additions |
-|---------|-------|---------------|
-| 2.1.10 | Stabilization | Final 2.1.x meta adjustments |
-| 2.1.8 | Safety Consolidation | Unified orchestrator, collision spacing, recycle suppression |
-| 2.1.7 | Session Longevity | UA continuity, lightweight poke |
-| 2.1.6 | Memory Guard | Queue pruning, edit TTL sweeps |
-| 2.1.5 | Edit Reliability | PendingEdits buffer, ACK watchdog |
-
-Full details remain in `CHANGELOG.md`.
-
----
 ## ⚠️ Disclaimer
 Not affiliated with Facebook. Use responsibly and comply with platform terms & local laws.
 
@@ -243,6 +218,6 @@ Focused PRs improving stability, safety heuristics, protocol coverage, or typing
 
 ---
 ## 📜 License
-[Cid kageno](https://www.facebook.com/profile.php?id=61572587854836)
+[Cid kageno](https://www.facebook.com/mritunjoy.mondol.535402)
 
-MIT © 2025 Cid kageno (cid-kageno-dev)
+MIT © 2026 Cid kageno (cid-kageno-dev)
