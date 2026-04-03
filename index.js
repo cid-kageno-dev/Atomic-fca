@@ -21,7 +21,7 @@ function printFancyStartupBanner() {
   if (_fancyBannerPrinted) return; _fancyBannerPrinted = true;
   
   const banner = `
-   █▀█ ▀█▀ █▀█ █▀▄▀█ █ █▀▀  █▀▀ █▀▀ ▄▀█
+   █▀█ ▀█▀ █▀█ █▀▄▀█ █ █▀▀   █▀▀ █▀▀ ▄▀█
    █▀█  █  █▄█ █ ▀ █ █ █▄▄   █▀  █▄▄ █▀█
   `;
 
