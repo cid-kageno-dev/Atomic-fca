@@ -187,8 +187,6 @@ Multi-path fallback:
 MQTT → HTTP → Direct
 Retry + timeout handling
 Adaptive suppression under unstable conditions
-
----
 🛡️ Safety System
 Layer
 Mechanism
@@ -228,8 +226,6 @@ Preserve persistent-device.json
 Avoid manual User-Agent rotation
 Let backoff system handle reconnects
 Monitor metrics before forcing resets
-
----
 
 🔌 Integration Example (GoatBot V2)
 ```js
