@@ -50,13 +50,17 @@ api.setParallelSend(5);
 // Maximum safety (sequential)
 api.setParallelSend(1);
 api.setFastSend(false);
+
 ---
 
 # ⚠️ Note: FastSend disables queue protections and may increase:
 Rate limiting risk
 Temporary delivery failures
 Account flagging probability
-🧩 Architecture Overview
+
+---
+
+# 🧩 Architecture Overview
 ATOMIC-fca operates across three core layers:
 1. Transport Layer
 MQTT (primary)
@@ -70,7 +74,10 @@ User-Agent continuity
 Queue system
 Parallel send engine
 Safety limiter & backoff logic
-🚀 Quick Start
+
+---
+
+# 🚀 Quick Start
 Option 1: AppState Login (Recommended)
 ```js
 const login = require('atomic-fca');
@@ -119,9 +126,10 @@ const login = require('atomic-fca');
     }
   });
 })();
+
 ---
 
-Option 3: Advanced Setup
+# Option 3: Advanced Setup
 ```js
 const login = require('atomic-fca');
 
@@ -146,8 +154,10 @@ const login = require('atomic-fca');
     }
   });
 })();
+
 ---
-🧪 Runtime APIs
+
+# 🧪 Runtime APIs
 ```js
 api.setEditOptions({ maxPendingEdits, editTTLms, ackTimeoutMs, maxResendAttempts });
 api.setBackoffOptions({ base, factor, max, jitter });
@@ -156,8 +166,10 @@ api.enableLazyPreflight(true);
 
 api.getHealthMetrics();
 api.getMemoryMetrics();
+
 ---
-📊 Monitoring Example
+
+# 📊 Monitoring Example
 ```js
 setInterval(() => {
   const h = api.getHealthMetrics();
@@ -171,9 +183,11 @@ setInterval(() => {
   });
   console.log('[MEMORY]', m);
 }, 60000);
+
 ---
-⚙️ Internal Systems
-🛰️ MQTT System
+
+# ⚙️ Internal Systems
+# 🛰️ MQTT System
 Smart reconnection with fresh sequence IDs
 Randomized reconnect intervals (26–60 min)
 Keepalive system (55–75 sec)
@@ -202,7 +216,7 @@ Prevent burst failures
 Idle Detection
 Ghost socket detection
 Force recovery
-📊 Example Benchmark (Local Testing)
+# 📊 Example Benchmark (Local Testing)
 Mode
 Avg Latency
 Throughput
@@ -216,14 +230,17 @@ FastSend
 ~40ms
 20+ msg/s
 Results vary based on network and environment.
-🧠 Best Practices
+# 🧠 Best Practices
 Use AppState instead of repeated logins
 Preserve persistent-device.json
 Avoid manual User-Agent rotation
 Let backoff system handle reconnects
 Monitor metrics before forcing resets
-🔌 Integration Example (GoatBot V2)
-JavaScript
+
+---
+
+# 🔌 Integration Example (GoatBot V2)
+```js
 const login = require('atomic-fca');
 
 (async () => {
@@ -237,6 +254,9 @@ const login = require('atomic-fca');
     }
   });
 })();
+
+---
+
 
 ## 📚 Documentation
 
