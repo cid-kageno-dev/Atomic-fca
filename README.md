@@ -49,7 +49,7 @@ api.setFastSend(false);
 ---
 ## 🚀 Quick Start
 
-### Option 1: AppState Login (Most Stable)
+### Option 1: AppState Login (Recommended )
 ```js
 const login = require('atomic-fca');
 
