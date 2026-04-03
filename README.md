@@ -232,33 +232,46 @@ const login = require('atomic-fca');
     }
   });
 })();
-📚 Documentation
-Resource
-Location
-Usage Guide
-USAGE-GUIDE.md
-API Reference
-DOCS.md
-Config Reference
-docs/configuration-reference.md
-Safety Docs
-docs/account-safety.md
-Examples
-examples/
-⚠️ Disclaimer
-This project is not affiliated with Facebook.
+
+## 📚 Documentation
+
+| Resource | Location |
+|----------|----------|
+| Usage Guide | `USAGE-GUIDE.md` |
+| API Reference | `DOCS.md` |
+| Config Reference | `docs/configuration-reference.md` |
+| Safety Docs | `docs/account-safety.md` |
+| Examples | `examples/` |
+
+---
+
+## ⚠️ Disclaimer
+
+This project is not affiliated with Facebook.  
 Use responsibly and comply with platform terms and applicable laws.
-🤝 Contributing
+
+---
+
+## 🤝 Contributing
+
 PRs are welcome, especially for:
-Stability improvements
-Protocol updates
-Performance tuning
-Type definitions
-📜 License
-MIT © 2026 Cid Kageno
-https://github.com/cid-kageno-dev⁠�
-⭐ Support
+- Stability improvements
+- Protocol updates
+- Performance tuning
+- Type definitions
+
+---
+
+## 📜 License
+
+MIT © 2026 Cid Kageno  
+https://github.com/cid-kageno-dev
+
+---
+
+## ⭐ Support
+
 If you find this project useful:
-Star the repository ⭐
-Share with others
-Contribute improvements
+- Star the repository ⭐
+- Share with others
+- Contribute improvements
