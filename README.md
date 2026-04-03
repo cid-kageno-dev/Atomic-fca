@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="Assets/iam-atomic.gif" alt="ATOMIC FCA" width="520" />
 </p>
@@ -38,7 +37,7 @@
 
 ## ⚡ Speed vs Safety Configuration
 
-
+```js
 // Maximum speed (higher risk)
 api.setFastSend(true);
 
@@ -51,6 +50,7 @@ api.setParallelSend(5);
 // Maximum safety (sequential)
 api.setParallelSend(1);
 api.setFastSend(false);
+---
 
 # ⚠️ Note: FastSend disables queue protections and may increase:
 Rate limiting risk
@@ -72,7 +72,7 @@ Parallel send engine
 Safety limiter & backoff logic
 🚀 Quick Start
 Option 1: AppState Login (Recommended)
-JavaScript
+```js
 const login = require('atomic-fca');
 
 (async () => {
@@ -119,8 +119,10 @@ const login = require('atomic-fca');
     }
   });
 })();
+---
+
 Option 3: Advanced Setup
-JavaScript
+```js
 const login = require('atomic-fca');
 
 (async () => {
@@ -144,8 +146,9 @@ const login = require('atomic-fca');
     }
   });
 })();
+---
 🧪 Runtime APIs
-JavaScript
+```js
 api.setEditOptions({ maxPendingEdits, editTTLms, ackTimeoutMs, maxResendAttempts });
 api.setBackoffOptions({ base, factor, max, jitter });
 
@@ -153,8 +156,9 @@ api.enableLazyPreflight(true);
 
 api.getHealthMetrics();
 api.getMemoryMetrics();
+---
 📊 Monitoring Example
-JavaScript
+```js
 setInterval(() => {
   const h = api.getHealthMetrics();
   const m = api.getMemoryMetrics();
@@ -167,6 +171,7 @@ setInterval(() => {
   });
   console.log('[MEMORY]', m);
 }, 60000);
+---
 ⚙️ Internal Systems
 🛰️ MQTT System
 Smart reconnection with fresh sequence IDs
