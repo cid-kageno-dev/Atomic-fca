@@ -2,7 +2,7 @@
   <img src="Assets/iam-atomic.gif" alt="ATOMIC FCA" width="520" />
 </p>
 
-# ATOMIC-fca v1.1.0 💥
+# ATOMIC FCA v1.1.0 💥
 
 > **High-Performance, Resilient Facebook Messenger API**  
 > Engineered for speed, stability, and adaptive safety
