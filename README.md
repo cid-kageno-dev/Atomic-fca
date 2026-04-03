@@ -1,5 +1,5 @@
  <p align="center">
-  <img src="/assets/atomic.png" alt="ATOMIC FCA" width="520" />
+  <img src="Assets/iam-atomic.gif" alt="ATOMIC FCA" width="520" />
 </p>
 
 # ATOMIC FCA v1.1.0 ⚡🚀
