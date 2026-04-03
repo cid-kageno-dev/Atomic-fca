@@ -55,7 +55,7 @@ Temporary delivery failures
 Account flagging probability
 
 ---
-🧩 Architecture Overview
+# 🧩 Architecture Overview
 ATOMIC-fca operates across three core layers:
 1. Transport Layer
 MQTT (primary)
@@ -71,7 +71,7 @@ Parallel send engine
 Safety limiter & backoff logic
 
 ---
-🚀 Quick Start
+# 🚀 Quick Start
 Option 1: AppState Login (Recommended)
 ```js
 const login = require('atomic-fca');
@@ -149,7 +149,7 @@ const login = require('atomic-fca');
 })();
 ```
 ---
-🧪 Runtime APIs
+# 🧪 Runtime APIs
 ```js
 api.setEditOptions({ maxPendingEdits, editTTLms, ackTimeoutMs, maxResendAttempts });
 api.setBackoffOptions({ base, factor, max, jitter });
@@ -160,7 +160,7 @@ api.getHealthMetrics();
 api.getMemoryMetrics();
 ```
 ---
-📊 Monitoring Example
+# 📊 Monitoring Example
 ```js
 setInterval(() => {
   const h = api.getHealthMetrics();
@@ -220,14 +220,14 @@ FastSend
 ~40ms
 20+ msg/s
 Results vary based on network and environment.
-🧠 Best Practices
+# 🧠 Best Practices
 Use AppState instead of repeated logins
 Preserve persistent-device.json
 Avoid manual User-Agent rotation
 Let backoff system handle reconnects
 Monitor metrics before forcing resets
 
-🔌 Integration Example (GoatBot V2)
+# 🔌 Integration Example (GoatBot V2)
 ```js
 const login = require('atomic-fca');
 
@@ -277,9 +277,12 @@ PRs are welcome, especially for:
 
 # 📜 License
 
-MIT © 2026 [Cid Kageno](https://github.com/cid-kageno-dev) 
-This project is based on [ws3-fca](https://github.com/NethWs3Dev/ws3-fca.git)
-And use [Nexus-fca](https://github.com/Nexus-016//Nexus-fCA.git) configuration 
+MIT © 2026 [Cid Kageno](https://github.com/cid-kageno-dev)
+
+This project is based on [ws3-fca](https://github.com/NethWs3Dev/ws3-fca.git) 
+
+and uses [Nexus-fca](https://github.com/Nexus-016//Nexus-fCA.git) configuration 
+
 ---
 
 # ⭐ Support
