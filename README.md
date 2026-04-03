@@ -50,7 +50,7 @@ api.setParallelSend(5);
 // Maximum safety (sequential)
 api.setParallelSend(1);
 api.setFastSend(false);
-
+```
 ---
 
 # ⚠️ Note: FastSend disables queue protections and may increase:
@@ -126,7 +126,7 @@ const login = require('atomic-fca');
     }
   });
 })();
-
+```
 ---
 
 # Option 3: Advanced Setup
@@ -154,7 +154,7 @@ const login = require('atomic-fca');
     }
   });
 })();
-
+```
 ---
 
 # 🧪 Runtime APIs
@@ -166,7 +166,7 @@ api.enableLazyPreflight(true);
 
 api.getHealthMetrics();
 api.getMemoryMetrics();
-
+```
 ---
 
 # 📊 Monitoring Example
@@ -183,7 +183,7 @@ setInterval(() => {
   });
   console.log('[MEMORY]', m);
 }, 60000);
-
+```
 ---
 
 # ⚙️ Internal Systems
@@ -254,7 +254,7 @@ const login = require('atomic-fca');
     }
   });
 })();
-
+```
 ---
 
 
