@@ -1,6 +1,6 @@
 {
   "name": "atomic-fca",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "Ultra-Fast, Secure & Stable Facebook Messenger API with Parallel Messaging.",
   "main": "index.js",
   "types": "index.d.ts",
