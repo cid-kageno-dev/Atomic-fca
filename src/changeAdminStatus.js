@@ -4,76 +4,120 @@ const utils = require("../utils");
 const log = require("npmlog");
 
 module.exports = function (defaultFuncs, api, ctx) {
-	return function changeAdminStatus(threadID, adminIDs, adminStatus, callback) {
-		if (utils.getType(threadID) !== "String") {
-			throw new utils.CustomError({ error: "changeAdminStatus: threadID must be a string" });
-		}
+	return async function changeAdminStatus(threadID, adminIDs, adminStatus, callback) {
+		try {
+			// =======================
+			// 🔒 VALIDATION
+			// =======================
 
-		if (utils.getType(adminIDs) === "String") {
-			adminIDs = [adminIDs];
-		}
+			if (typeof threadID !== "string" || !threadID.trim()) {
+				throw new utils.CustomError({
+					error: "changeAdminStatus: threadID must be a non-empty string"
+				});
+			}
 
-		if (utils.getType(adminIDs) !== "Array") {
-			throw new utils.CustomError({ error: "changeAdminStatus: adminIDs must be an array or string" });
-		}
+			// Normalize adminIDs
+			if (typeof adminIDs === "string") {
+				adminIDs = [adminIDs];
+			}
 
-		if (utils.getType(adminStatus) !== "Boolean") {
-			throw new utils.CustomError({ error: "changeAdminStatus: adminStatus must be a string" });
-		}
+			if (!Array.isArray(adminIDs)) {
+				throw new utils.CustomError({
+					error: "changeAdminStatus: adminIDs must be an array or string"
+				});
+			}
 
-		let resolveFunc = function () { };
-		let rejectFunc = function () { };
-		const returnPromise = new Promise(function (resolve, reject) {
-			resolveFunc = resolve;
-			rejectFunc = reject;
-		});
+			// Clean + validate IDs
+			adminIDs = adminIDs
+				.filter(id => typeof id === "string" && id.trim())
+				.map(id => id.trim());
 
-		if (!callback) {
-			callback = function (err) {
-				if (err) {
-					return rejectFunc(err);
-				}
-				resolveFunc();
+			if (adminIDs.length === 0) {
+				throw new utils.CustomError({
+					error: "changeAdminStatus: adminIDs is empty or invalid"
+				});
+			}
+
+			if (typeof adminStatus !== "boolean") {
+				throw new utils.CustomError({
+					error: "changeAdminStatus: adminStatus must be a boolean"
+				});
+			}
+
+			if (callback && typeof callback !== "function") {
+				throw new utils.CustomError({
+					error: "changeAdminStatus: callback must be a function"
+				});
+			}
+
+			// =======================
+			// 📦 BUILD REQUEST
+			// =======================
+
+			const form = {
+				thread_fbid: threadID,
+				add: adminStatus
 			};
-		}
 
-		if (utils.getType(callback) !== "Function" && utils.getType(callback) !== "AsyncFunction") {
-			throw new utils.CustomError({ error: "changeAdminStatus: callback is not a function" });
-		}
-
-		const form = {
-			"thread_fbid": threadID
-		};
-
-		let i = 0;
-		for (const u of adminIDs) {
-			form[`admin_ids[${i++}]`] = u;
-		}
-		form["add"] = adminStatus;
-
-		defaultFuncs
-			.post("https://www.facebook.com/messaging/save_admins/?dpr=1", ctx.jar, form)
-			.then(utils.parseAndCheckLogin(ctx, defaultFuncs))
-			.then(function (resData) {
-				if (resData.error) {
-					switch (resData.error) {
-						case 1976004:
-							throw new utils.CustomError({ error: "Cannot alter admin status: you are not an admin.", rawResponse: resData });
-						case 1357031:
-							throw new utils.CustomError({ error: "Cannot alter admin status: this thread is not a group chat.", rawResponse: resData });
-						default:
-							throw new utils.CustomError({ error: "Cannot alter admin status: unknown error.", rawResponse: resData });
-					}
-				}
-
-				callback();
-			})
-			.catch(function (err) {
-				log.error("changeAdminStatus", err);
-				return callback(err);
+			adminIDs.forEach((id, i) => {
+				form[`admin_ids[${i}]`] = id;
 			});
 
-		return returnPromise;
+			// =======================
+			// 🌐 REQUEST
+			// =======================
+
+			const resData = await defaultFuncs
+				.post("https://www.facebook.com/messaging/save_admins/?dpr=1", ctx.jar, form)
+				.then(utils.parseAndCheckLogin(ctx, defaultFuncs));
+
+			// =======================
+			// ⚠️ ERROR HANDLING
+			// =======================
+
+			if (resData?.error) {
+				switch (resData.error) {
+					case 1976004:
+						throw new utils.CustomError({
+							error: "Cannot alter admin status: you are not an admin.",
+							rawResponse: resData
+						});
+
+					case 1357031:
+						throw new utils.CustomError({
+							error: "Cannot alter admin status: this is not a group chat.",
+							rawResponse: resData
+						});
+
+					default:
+						throw new utils.CustomError({
+							error: `Cannot alter admin status: ${resData.error}`,
+							rawResponse: resData
+						});
+				}
+			}
+
+			// =======================
+			// ✅ SUCCESS
+			// =======================
+
+			if (callback) callback(null);
+			return true;
+
+		} catch (err) {
+			// =======================
+			// 🪵 LOGGING
+			// =======================
+
+			log.error("changeAdminStatus", {
+				threadID,
+				adminIDs,
+				adminStatus,
+				error: err
+			});
+
+			if (callback) return callback(err);
+			throw err;
+		}
 	};
 };
-
