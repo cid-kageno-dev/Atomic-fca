@@ -2,13 +2,13 @@
   <img src="Assets/iam-atomic.gif" alt="ATOMIC FCA" width="520" />
 </p>
 
-# ATOMIC FCA v1.0.0 💥
+# ATOMIC FCA v1.1.5 💥
 
 > **High-Performance, Resilient Facebook Messenger API**  
 > Engineered for speed, stability, and adaptive safety
 
 ---
-## 🔥 Version 1.0.0 Highlights
+## 🔥 (new) Version 1.1.5 Highlights
 
 - ⚡ **Parallel Message Sending** — Up to 5 concurrent sends
 - 🚀 **Fast Send Mode** — Optional queue bypass for ultra-low latency
