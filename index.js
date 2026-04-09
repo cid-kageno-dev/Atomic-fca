@@ -182,7 +182,7 @@ function setOptions(globalOptions, options) {
           case "userAgent": {
             globalOptions.userAgent =
               options.userAgent ||
-              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36";
             break;
           }
           case "proxy": {
@@ -1359,7 +1359,7 @@ async function login(loginData, options = {}, callback) {
       logRecordSize: defaultLogRecordSize,
       online: (process.env.ATOMIC_ONLINE ? (process.env.ATOMIC_ONLINE === '1' || process.env.ATOMIC_ONLINE === 'true') : true),
       emitReady: options.emitReady || false,
-      userAgent: options.userAgent || process.env.ATOMIC_UA || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+      userAgent: options.userAgent || process.env.ATOMIC_UA || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
       randomUserAgent: options.randomUserAgent || (process.env.ATOMIC_RANDOM_USER_AGENT === 'true'),
       proxy: options.proxy || process.env.ATOMIC_PROXY || process.env.HTTPS_PROXY || process.env.HTTP_PROXY,
       bypassRegion: options.bypassRegion || process.env.ATOMIC_BYPASS_REGION,

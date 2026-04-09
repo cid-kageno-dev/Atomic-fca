@@ -87,7 +87,7 @@ function getJar() {
 }
 
 function getHeaders(url, options, ctx, customHeader) {
-    const ua = (options?.userAgent || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36");
+    const ua = (options?.userAgent || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36");
     const isWindows = ua.includes("Windows NT");
     const isAndroid = ua.includes("Android");
     const isChrome = ua.includes("Chrome") && !ua.includes("Edg");
@@ -126,7 +126,7 @@ function getHeaders(url, options, ctx, customHeader) {
 
     // Dynamic Client Hints - CRITICAL: Must match User-Agent
     if (isChrome && isWindows) {
-        headers["sec-ch-ua"] = '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"';
+        headers["sec-ch-ua"] = '"Google Chrome";v="135", "Chromium";v="135", "Not_A Brand";v="8"';
         headers["sec-ch-ua-mobile"] = "?0";
         headers["sec-ch-ua-platform"] = '"Windows"';
     } else if (isAndroid) {
